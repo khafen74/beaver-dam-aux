@@ -27,8 +27,8 @@
       <file leaf-file-name="raster_merge.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raster_merge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="104" column="9" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+            <state relative-caret-position="70">
+              <caret line="102" column="90" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="90" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1504138536778" expanded="true" signature="2179:2203" ph="..." />
@@ -101,7 +101,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../feature_clip_raster" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="js.eslint.eslintPackage" value="" />
   </component>
@@ -574,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/raster_merge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="104" column="9" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        <state relative-caret-position="70">
+          <caret line="102" column="90" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="90" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1504138536778" expanded="true" signature="2179:2203" ph="..." />
