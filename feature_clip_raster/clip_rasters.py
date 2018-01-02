@@ -59,8 +59,8 @@ class Clipper():
             ras = None
             del(ras)
 
-        os.system("gdalwarp -dstnodata -9999 -q -cutline " + polyPath + " -crop_to_cutline " + " -of GTiff -tr " + str(self.xres) + " " + str(self.yres) + " " + rasterPath + " " + outPath)
-        print "gdalwarp -dstnodata -9999 -q -cutline " + polyPath + " -crop_to_cutline " + " -of GTiff -tr " + str(self.xres) + " " + str(self.yres) + " " + rasterPath + " " + outPath
+        os.system("gdalwarp -dstnodata -9999 -q -cutline " + polyPath + " -crop_to_cutline" + " -of GTiff -tr " + str(self.xres) + " " + str(self.yres) + " " + rasterPath + " " + outPath)
+        print "gdalwarp -dstnodata -9999 -q -cutline " + polyPath + " -crop_to_cutline" + " -of GTiff -tr " + str(self.xres) + " " + str(self.yres) + " " + rasterPath + " " + outPath
 
     def clipVectorByFeatures(self):
         ds = self.driverSHP.Open(self.clipShp)
@@ -89,6 +89,7 @@ class Clipper():
     def clipVectorPolygon(self, inPath, clipPath, outPath):
         #Clipping vector and input vector must have the same coordinate system
         os.system("ogr2ogr -clipsrc " + clipPath + " " + outPath + " " + inPath)
+        print "ogr2ogr -clipsrc " + clipPath + " " + outPath + " " + inPath
 
     def createClippingFeatures(self):
         ds = self.driverSHP.Open(self.clipShp)
@@ -164,58 +165,58 @@ class Clipper():
 ##########################################################################################
 ############# Code to clip by HUC12s for each HUC8 #######################################
 ##########################################################################################
-# raster1 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\dem_vb.tif'
-# raster2 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fil_vb.tif'
-# raster3 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fdir_vb.tif'
-# raster4 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fac_1km_vb.tif'
-# raster5 = r'G:\01_etal\GIS_Data\USA\Soil\SSURGO\Utah\BearRiver\16010204_LowerBearMalad\ksat_vb_ms.tif'
-# raster6 = r'G:\01_etal\GIS_Data\USA\Soil\SSURGO\Utah\BearRiver\16010204_LowerBearMalad\kv_vb_ms.tif'
-# raster7 = r'G:\01_etal\GIS_Data\USA\Soil\SSURGO\Utah\BearRiver\16010204_LowerBearMalad\fc_vb.tif'
-# raster8 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fdird_vb.tif'
-# raster9 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fac_01km_vb.tif'
-# #dempath = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\BearRiverDEM_10m.tif'
-# #precippath = r'G:\01_etal\GIS_Data\USA\Climate\Prism\Precip\BearRiverAve\precip_huc8.tif'
-# #bratpath = r'G:\01_etal\GIS_Data\USA\BRAT\Utah\BearRiver\EntireDrainage\outputs\brat_cap_20170224.shp'
-# rasList = [raster1, raster2, raster3, raster4, raster5, raster6, raster7, raster8, raster9]
-# #rasList = [raster9]
-# #rasList = [dempath, precippath]
-# vector1 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\01_shpIn\brat_cap_20170224.shp'
-# #vector2 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BridgeCreek\10m\2012\01_shpIn\points_snap.shp'
-# vecList = [vector1]
-# #vecList = []
-# #vecList = [bratpath]
-# clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\16010204\HUC12_utm12.shp'
-# #clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\HUC12_utm12.shp'
-# outDir = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\HUC12'
-# #outDir = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\HUC12_data\GIS_data'
-# rasSubdir = "02_rasIn"
-# vecSubdir = "01_shpIn"
-# clipField = "HUC12"
-#
-# myClipper = Clipper(clipShp, clipField, outDir, rasList, vecList, rasSubdir, vecSubdir)
-# myClipper.runClipByFeatures()
+raster1 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\dem_vbfac.tif'
+#raster2 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fil_vbfac.tif'
+raster3 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\fdird_vbfac.tif'
+raster4 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\fac_01km_vbfac.tif'
+raster5 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\fc_vbfac.tif'
+raster6 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\por_vbfac.tif'
+raster7 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\ksat_vbfac.tif'
+#raster8 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010204\02_rasIn\fdird_vb.tif'
+raster9 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\02_rasIn\kv_vbfac.tif'
+#dempath = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\BearRiverDEM_10m.tif'
+#precippath = r'G:\01_etal\GIS_Data\USA\Climate\Prism\Precip\BearRiverAve\precip_huc8.tif'
+#bratpath = r'G:\01_etal\GIS_Data\USA\BRAT\Utah\BearRiver\EntireDrainage\outputs\brat_cap_20170224.shp'
+rasList = [raster1, raster3, raster4, raster5, raster6, raster7, raster9]
+#rasList = [raster9]
+#rasList = [dempath, precippath]
+vector1 = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\01_shpIn\brat_cap_20170224.shp'
+#vector2 = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BridgeCreek\10m\2012\01_shpIn\points_snap.shp'
+vecList = [vector1]
+#vecList = []
+#vecList = [bratpath]
+clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\16010102\HUC12_utm12.shp'
+#clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\HUC12_utm12.shp'
+outDir = r'E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\16010102\HUC12'
+#outDir = r'F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\HUC12_data\GIS_data'
+rasSubdir = "02_rasIn"
+vecSubdir = "01_shpIn"
+clipField = "HUC12"
+
+myClipper = Clipper(clipShp, clipField, outDir, rasList, vecList, rasSubdir, vecSubdir)
+myClipper.runClipByFeatures()
 
 ##########################################################################################
 ############# Code to clip by HUC8 #######################################################
 ##########################################################################################
 
-huc8s = ['16010101', '16010102', '16010201', '16010202', '16010203', '16010204']
-
-raster1 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\dem_vbfac.tif'
-raster2 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\fdird_vbfac.tif'
-raster3 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\fac_01km_vbfac.tif'
-rasList = [raster1, raster2, raster3]
-
-vector1 = r'G:\01_etal\GIS_Data\USA\BRAT\Utah\BearRiver\EntireDrainage\outputs\brat_cap_20170224.shp'
-vecList = [vector1]
-#vecList = None
-
-clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\HUC8_utm12.shp'
-outDir = r'G:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8'
-
-rasSubdir = "02_rasIn"
-vecSubdir = "01_shpIn"
-clipField = "HUC8"
-
-myClipper = Clipper(clipShp, clipField, outDir, rasList, vecList, rasSubdir, vecSubdir)
-myClipper.runClipByFeatures()
+# huc8s = ['16010101', '16010102', '16010201', '16010202', '16010203', '16010204']
+#
+# raster1 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\dem_vbfac.tif'
+# raster2 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\fdird_vbfac.tif'
+# raster3 = r'G:\01_etal\GIS_Data\USA\DEM\NED_10m\Utah\BearRiver\fac_01km_vbfac.tif'
+# rasList = [raster1, raster2, raster3]
+#
+# vector1 = r'G:\01_etal\GIS_Data\USA\BRAT\Utah\BearRiver\EntireDrainage\outputs\brat_cap_20170224.shp'
+# vecList = [vector1]
+# #vecList = None
+#
+# clipShp = r'G:\01_etal\GIS_Data\USA\NHD\Utah\Watersheds\BearRiverNHD\HUC8_utm12.shp'
+# outDir = r'G:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8'
+#
+# rasSubdir = "02_rasIn"
+# vecSubdir = "01_shpIn"
+# clipField = "HUC8"
+#
+# myClipper = Clipper(clipShp, clipField, outDir, rasList, vecList, rasSubdir, vecSubdir)
+# myClipper.runClipByFeatures()

@@ -5,8 +5,8 @@ huc8s = [16010101, 16010102, 16010201, 16010202, 16010203, 16010204]
 baseDirName = "HUC12"
 cap = "100"
 filename = "ModeledDamPoints.shp"
-baseDir = r"F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8"
-newfile = r"F:\01_etal\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\EntireBasin" + "/out_" + cap + "/ModeledDamPoints.shp"
+baseDir = r"E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8"
+newfile = r"E:\konrad\Projects\Modeling\BeaverWaterStorage\wrk_Data\AnalysisRuns\BearRiverHUC8\EntireBasin" + "/out_" + cap + "/ModeledDamPoints.shp"
 driver = ogr.GetDriverByName("ESRI Shapefile")
 outDs = driver.CreateDataSource(newfile)
 outLyr = outDs.CreateLayer(newfile, geom_type=ogr.wkbPoint)
@@ -37,12 +37,6 @@ for huc8 in huc8s:
                     damHeight = featCopy.GetFieldAsDouble("ht_mid")
                     outFeat = ogr.Feature(outLyr.GetLayerDefn())
                     outFeat.SetField("ht_mid", damHeight)
-                    if damHeight > 1.0:
-                        outFeat.SetField("dam_type", "Primary")
-                        prim = prim +1
-                    else:
-                        outFeat.SetField("dam_type", "Secondary")
-                        sec = sec +1
                     outFeat.SetField("vol_lo", featCopy.GetFieldAsDouble("vol_lo"))
                     outFeat.SetField("vol_mid", featCopy.GetFieldAsDouble("vol_mid"))
                     outFeat.SetField("vol_hi", featCopy.GetFieldAsDouble("vol_hi"))

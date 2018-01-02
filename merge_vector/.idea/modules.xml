@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../flopy_analysis/.idea/flopy_analysis.iml" filepath="$PROJECT_DIR$/../flopy_analysis/.idea/flopy_analysis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../gw_area/.idea/gw_area.iml" filepath="$PROJECT_DIR$/../gw_area/.idea/gw_area.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/merge_vector.iml" filepath="$PROJECT_DIR$/.idea/merge_vector.iml" />
     </modules>
   </component>
